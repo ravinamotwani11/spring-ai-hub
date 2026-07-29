@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>AI World</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/chat.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- =========================
+     LANDING PAGE
+========================= -->
+
+<div id="landing-page" class="page active">
+    <div class="landing-bg"></div>
+    <div class="hero">
+        <h1>
+            🌌 AI WORLD HUB
+        </h1>
+        <p>
+            Explore intelligent worlds powered by
+            <span>Spring Boot</span> + <span>Spring AI</span>
+        </p>
+    </div>
+
+    <!-- TV SHOW AI -->
+
+    <div class="ai-category">
+
+        <h2>
+            🧛 Entertainment Universe
+            <small>TV Shows & Characters</small>
+        </h2>
+
+        <div class="ai-row">
+
+            <div class="ai-card tvd-card"
+                 onclick="navigate('tvd')">
+
+                <div class="icon">🧛</div>
+
+                <h3>Vampire Diaries</h3>
+
+                <p>Mystic Falls secrets & stories</p>
+
+            </div>
+
+            <div class="ai-card simpsons-card"
+                 onclick="navigate('simpsons')">
+
+                <div class="icon">🍩</div>
+
+                <h3>Simpsons AI</h3>
+
+                <p>Springfield fun & memories</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FITNESS AI -->
+
+    <div class="ai-category">
+
+        <h2>
+            💪 Health & Wellness
+            <small>Fitness & Lifestyle</small>
+        </h2>
+
+        <div class="ai-row">
+
+            <div class="ai-card fitness-card"
+                 onclick="navigate('fitness')">
+
+                <div class="icon">💪</div>
+
+                <h3>Fitness Coach</h3>
+
+                <p>Workout & nutrition plans</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="ai-category">
+
+        <div class="ai-row">
+
+            <div>
+
+                <h2>
+                    📱 Social Media Studio
+                    <small>Content Creation</small>
+                </h2>
+
+                <div class="ai-card tweet-card"
+                     onclick="navigate('tweets')">
+
+                    <div class="icon">🐦</div>
+
+                    <h3>Tweet Creator AI</h3>
+
+                    <p>Create engaging AI tweets</p>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    🍽 Food Intelligence
+                    <small>Travel & Menu Translation</small>
+                </h2>
+
+                <div class="ai-card food-card"
+                     onclick="navigate('menu')">
+
+                    <div class="icon">🍽</div>
+
+                    <h3>Smart Menu AI</h3>
+
+                    <p>Translate restaurant menus</p>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    🧠 Knowledge Hub
+                    <small>RAG & Document Chat</small>
+                </h2>
+
+                <div class="ai-card rag-card"
+                     onclick="navigate('rag')">
+
+                    <div class="icon">📚</div>
+
+                    <h3>Knowledge AI</h3>
+
+                    <p>Chat with PDFs using RAG</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     CHAT PAGE
+========================= -->
+
+
+<div id="chat-page" class="page">
+
+
+    <div id="history-container">
+
+
+        <button class="back-button"
+                onclick="goHome()">
+
+            ⬅ Back to AI World
+
+        </button>
+
+
+        <div id="history"></div>
+
+
+    </div>
+
+
+    <div class="chat-container">
+
+
+        <div id="chat-box"></div>
+
+
+        <div class="input-area">
+
+
+            <input
+                    id="input"
+                    placeholder="Ask AI..."
+                    onkeydown="handleEnter(event)"
+            />
+
+
+            <button onclick="sendMessage()">
+                Send
+            </button>
+
+
+            <button onclick="newChat()">
+                New Chat
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     FOOD PAGE
+========================= -->
+
+
+<div id="food-page" class="page">
+
+
+    <div class="food-top-bar">
+
+        <button class="food-back-btn"
+                onclick="goHome()">
+
+            ⬅ Back
+
+        </button>
+
+
+    </div>
+
+
+    <div class="food-wrapper">
+
+
+        <h1 class="food-title">
+            🍽 Smart Menu AI
+        </h1>
+
+
+        <input
+                type="file"
+                id="menuFile"
+        />
+
+
+        <button onclick="uploadMenu()">
+
+            Upload Menu
+
+        </button>
+
+
+        <div id="food-loading"
+             style="display:none;">
+
+            Processing...
+
+        </div>
+
+
+        <div id="food-result"></div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     TWEET PAGE
+========================= -->
+
+
+<div id="tweet-page" class="page">
+
+
+    <div class="tweet-wrapper">
+
+
+        <button class="food-back-btn"
+                onclick="goHome()">
+
+            ⬅ Back to AI World
+
+        </button>
+
+
+        <h1>
+            🐦 Tweet Creator AI
+        </h1>
+
+
+        <div class="tweet-box">
+
+
+
+            <textarea
+                    id="originalTweet"
+                    placeholder="Write your tweet idea..."
+            ></textarea>
+
+
+            <input
+                    id="topicHint"
+                    placeholder="Topic hint (optional)"
+            />
+
+
+            <label>
+                Emoji Level
+            </label>
+
+
+            <select id="emojiLevel">
+
+
+                <option value="low">
+                    Low
+                </option>
+
+
+                <option value="medium">
+                    Medium
+                </option>
+
+
+                <option value="high">
+                    High
+                </option>
+
+
+            </select>
+
+
+            <label>
+                Modernization Level
+            </label>
+
+
+            <select id="modernizationLevel">
+
+
+                <option value="low">
+                    Low
+                </option>
+
+
+                <option value="medium">
+                    Medium
+                </option>
+
+
+                <option value="extreme">
+                    Extreme
+                </option>
+
+
+            </select>
+
+
+            <button onclick="generateTweets()">
+
+                ✨ Generate Tweets
+
+            </button>
+
+
+        </div>
+
+
+        <div id="tweet-loader"
+             style="display:none;">
+
+
+            <div class="spinner"></div>
+
+
+            <p>
+                AI is creating magic...
+            </p>
+
+
+        </div>
+
+
+        <div id="tweet-results"></div>
+
+
+        <h2>
+            📜 Tweet History
+        </h2>
+
+        <div id="tweet-history"></div>
+
+    </div>
+
+
+</div>
+
+<!-- KNOWLEDGE AI PAGE -->
+
+<div id="rag-page" class="page">
+
+    <div class="tweet-wrapper">
+
+        <button class="food-back-btn" onclick="goHome()">
+            ⬅ Back to AI World
+        </button>
+
+        <h1 class="tweet-title">
+            📚 Pickering & Springfield AI
+        </h1>
+
+        <p class="tweet-subtitle">
+            Ask anything from the railway history knowledge base
+        </p>
+
+        <!-- INPUT BOX -->
+        <div class="tweet-box">
+
+            <textarea
+                    id="ragQuestion"
+                    placeholder="Ask something about the book..."
+            ></textarea>
+
+            <button onclick="askKnowledgeAI()">
+                🔍 Ask Knowledge AI
+            </button>
+
+        </div>
+
+        <!-- LOADER -->
+        <div id="rag-loader" style="display:none;">
+            <div class="spinner"></div>
+            <p>Searching railway archives...</p>
+        </div>
+
+        <!-- ANSWER -->
+        <div id="rag-answer"></div>
+
+        <!-- HISTORY -->
+        <h2>📜 History</h2>
+        <div id="rag-history"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+
+<div id="audio-controls">
+
+
+    <button onclick="playMenuAudio()">
+
+        🔊 Play Audio
+
+    </button>
+
+
+</div>
+
+<script src="js/ai-chat.js"></script>
+
+<script src="js/app-shell.js"></script>
+
+<script src="js/rag.js"></script>
+
+
+</body>
+
+</html>

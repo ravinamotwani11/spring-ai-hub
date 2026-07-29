@@ -1,0 +1,698 @@
+/* =========================
+   BASE
+========================= */
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f0f0f;
+    color: white;
+    transition: background 0.6s ease;
+}
+
+/* =========================
+   PAGE SYSTEM (FIXED CORE)
+========================= */
+
+.page {
+    display: none !important;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.page.active {
+    display: block !important;
+}
+
+/* =========================
+   CHAT PAGE LAYOUT ONLY
+========================= */
+
+#chat-page.active {
+    display: flex !important;
+    height: 100vh;
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#history {
+    width: 260px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* =========================
+   LANDING PAGE
+========================= */
+
+#landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    text-align: center;
+
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* CATEGORY */
+
+.ai-category {
+    width: 100%;
+    max-width: 700px;
+    margin:10px auto;
+    text-align: center;
+}
+
+.ai-category h2 {
+    margin-bottom:8px;
+    font-size:17px;
+}
+
+.ai-category small{
+    display:block;
+    margin-top:2px;
+    font-size:12px;
+    opacity:.7;
+}
+
+.ai-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.ai-row > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ai-row h2 {
+    margin: 0 0 12px 0;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/* =========================
+   AI CARDS
+========================= */
+
+.ai-card {
+    margin-top: 0;
+    width: 170px;
+    height: 95px;
+    padding: 12px;
+    border-radius: 16px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: 0.3s;
+}
+
+.ai-card:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* ICON + TEXT */
+
+.icon {
+    font-size: 26px;
+}
+
+.ai-card h3 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.ai-card p {
+    font-size: 11px;
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* =========================
+   CARD COLORS
+========================= */
+
+.tvd-card {
+    background: linear-gradient(135deg, rgba(120,0,0,.6), rgba(0,0,0,.8));
+}
+
+.simpsons-card {
+    background: linear-gradient(135deg, rgba(180,140,0,.5), rgba(30,30,30,.8));
+}
+
+.fitness-card {
+    background: linear-gradient(135deg, rgba(0,180,90,.5), rgba(0,40,20,.8));
+}
+
+.food-card {
+    background: linear-gradient(
+        135deg,
+        #ffb347,
+        #ff7b00,
+        #ff512f
+    );
+    color: white;
+}
+.food-card:hover {
+
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.55);
+
+}
+
+.tweet-card {
+    background: linear-gradient(
+        135deg,
+        rgba(0,180,255,.6),
+        rgba(90,0,255,.8)
+    );
+}
+
+.rag-card{
+    background: linear-gradient(
+        135deg,
+        rgba(40,90,255,.60),
+        rgba(110,0,255,.70)
+    );
+}
+
+/* =========================
+   CHAT THEME
+========================= */
+
+.theme-tvd {
+    background: radial-gradient(circle, #420000, #050505);
+}
+
+.theme-simpsons {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 40%, #b08d00 100%);
+}
+
+.theme-fitness {
+    background: linear-gradient(135deg, #001f12, #00aa55);
+}
+
+.theme-food {
+    background: linear-gradient(135deg, #1a120b, #3b1f0f, #8b5a2b);
+}
+
+.theme-rag{
+
+    background: linear-gradient(
+        135deg,
+        #07142d,
+        #142850,
+        #274690,
+        #5d3fd3
+    );
+
+    background-size:400% 400%;
+
+    animation:rainbowFlow 15s ease infinite;
+
+    color:white;
+
+    min-height:100vh;
+
+}
+
+/* FOOD PAGE */
+
+#food-page.active {
+    display: block !important;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.food-wrapper {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.food-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.food-card {
+    background: rgba(0,0,0,0.35);
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* =========================
+   AUDIO BUTTON
+========================= */
+
+#audio-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    display: none;
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+#audio-controls button {
+    background: #ffcc00;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu-text {
+
+    white-space: pre-line;
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+}
+
+/* ===========
+   TWEET AI
+============== */
+
+
+/* =====================================
+    TWEET AI - COLORFUL THEME
+===================================== */
+
+.theme-tweets {
+
+    background: linear-gradient(
+        135deg,
+        #ff6a00,
+        #ee0979,
+        #00c6ff,
+        #7b2ff7,
+        #f9d423
+    );
+
+    background-size: 400% 400%;
+
+    animation: rainbowFlow 12s ease infinite;
+
+    min-height: 100vh;
+
+    color: white;
+}
+
+/* animated background movement */
+@keyframes rainbowFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =====================================
+   WRAPPER
+===================================== */
+
+.tweet-wrapper {
+
+    width: 780px;
+    max-width: 92%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding-top: 25px;
+}
+
+/* =====================================
+   TITLE
+===================================== */
+
+.tweet-title {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 6px;
+
+    color: #fff;
+
+    text-shadow: 0 4px 18px rgba(0,0,0,0.4);
+}
+
+.tweet-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 18px;
+
+    color: #fff;
+}
+
+/* =====================================
+   INPUT BOX (GLASS COLORFUL)
+===================================== */
+
+.tweet-box {
+
+    background: rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+    margin-bottom: 20px;
+}
+
+/* inputs */
+.tweet-box textarea,
+.tweet-box input,
+.tweet-box select {
+
+    width: 92%;
+
+    padding: 12px;
+
+    margin: 10px 0;
+
+    border-radius: 14px;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #fff;
+
+    background: rgba(0,0,0,0.25);
+
+    backdrop-filter: blur(10px);
+}
+
+/* placeholder color */
+.tweet-box input::placeholder,
+.tweet-box textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+/* button */
+.tweet-box button {
+
+    background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc);
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 26px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.tweet-box button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* =====================================
+   LOADING SPINNER (COOL NEON)
+===================================== */
+
+#tweet-loader {
+
+    display: none;
+
+    margin: 25px auto;
+
+    text-align: center;
+
+    color: white;
+}
+
+.spinner {
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    border: 5px solid rgba(255,255,255,0.2);
+
+    border-top: 5px solid #ff00cc;
+
+    border-right: 5px solid #00ffcc;
+
+    border-bottom: 5px solid #7b2ff7;
+
+    animation: spin 1s linear infinite;
+
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =====================================
+   RESULT CARDS (VERY COLORFUL)
+===================================== */
+
+.tweet-result {
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,0,204,0.25),
+        rgba(0,255,204,0.15),
+        rgba(123,47,247,0.2)
+    );
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    padding: 16px 18px;
+
+    margin: 12px 0;
+
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+
+    text-align: left;
+
+    color: #fff;
+
+    transition: 0.3s ease;
+
+    animation: fadeUp 0.35s ease;
+}
+
+/* hover effect */
+.tweet-result:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* tweet text */
+.tweet-result p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   HISTORY ITEMS
+===================================== */
+
+.tweet-history-item {
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    padding: 12px 14px;
+
+    margin: 10px 0;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    color: white;
+
+    text-align: left;
+}
+
+.tweet-history-item:hover {
+    transform: scale(1.03);
+    background: rgba(255,255,255,0.2);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .tweet-wrapper {
+        width: 95%;
+    }
+
+    .tweet-title {
+        font-size: 26px;
+    }
+}
+
+/* =========================
+   TWEET LANDING CARD ONLY
+========================= */
+
+.tweet-card {
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,198,255,0.6),
+        rgba(123,47,247,0.7)
+    );
+
+    border:1px solid rgba(255,255,255,0.25);
+
+}
+
+
+.tweet-card:hover {
+
+    transform:
+    translateY(-8px)
+    scale(1.05);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.4);
+
+}
+
+/* Three feature columns */
+
+.ai-row > div {
+
+    width: 200px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.ai-row > div h2 {
+
+    font-size: 15px;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+
+}
+
+.ai-row > div small {
+
+    display: block;
+
+    font-size: 11px;
+
+    opacity: .75;
+
+    margin-top: 3px;
+
+}
+
+#rag-page .tweet-wrapper {
+    padding-top: 20px;
+}
+
+#rag-answer {
+    margin-top: 15px;
+}
+
+#rag-history {
+    margin-top: 10px;
+}
+
